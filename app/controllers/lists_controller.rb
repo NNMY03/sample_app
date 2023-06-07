@@ -1,10 +1,10 @@
 class ListsController < ApplicationController
-  def new
+  def new #データの新規作成フォームを表示する
     # Viweへ渡すためのインスタンス変数に空のModelオブジェクトを生成する
     @list = List.new
   end
 
-  def create
+  def create #データを追加・保存する
     # １.&2. データを受け取り新規登録するためのインスタンス作成
     list = List.new(list_params)
     # 3. データをデータベースに保存するためのsaveメソッド実行
@@ -13,13 +13,14 @@ class ListsController < ApplicationController
     redirect_to '/top'
   end
 
-  def index
+  def index # データの内容・一覧を表示する
+   @lists = List.all
   end
 
-  def show
+  def show #データの詳細を表示する
   end
 
-  def edit
+  def edit #データを更新するためのフォームを表示する
   end
 
   private
